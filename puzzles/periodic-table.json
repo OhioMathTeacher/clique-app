@@ -1,0 +1,68 @@
+{
+  "title": "Periodic Table Basics",
+  "author": "Connections Builder",
+  "language": "en",
+  "subject": "Science",
+  "grade": "9-10",
+  "topic": "chemistry",
+  "groups": [
+    {
+      "category": "Noble gases",
+      "difficulty": "yellow",
+      "words": [
+        "HELIUM",
+        "NEON",
+        "ARGON",
+        "KRYPTON"
+      ]
+    },
+    {
+      "category": "Halogens",
+      "difficulty": "green",
+      "words": [
+        "FLUORINE",
+        "CHLORINE",
+        "BROMINE",
+        "IODINE"
+      ]
+    },
+    {
+      "category": "Alkali metals",
+      "difficulty": "blue",
+      "words": [
+        "LITHIUM",
+        "SODIUM",
+        "POTASSIUM",
+        "RUBIDIUM"
+      ]
+    },
+    {
+      "category": "Elements named after places",
+      "difficulty": "purple",
+      "words": [
+        "AMERICIUM",
+        "FRANCIUM",
+        "GALLIUM",
+        "POLONIUM"
+      ]
+    }
+  ],
+  "hints": {
+    "HELIUM": "Lightest noble gas, fills party balloons",
+    "NEON": "Noble gas that glows in signs",
+    "ARGON": "Most abundant noble gas in Earth's atmosphere",
+    "KRYPTON": "Noble gas; also Superman's home planet",
+    "FLUORINE": "Most reactive nonmetal, found in toothpaste",
+    "CHLORINE": "Halogen used in pool sanitizing",
+    "BROMINE": "Halogen that's a deep red liquid at room temperature",
+    "IODINE": "Halogen used in disinfectants and thyroid hormones",
+    "LITHIUM": "Soft metal used in rechargeable batteries",
+    "SODIUM": "Alkali metal that combines with chloride to make salt",
+    "POTASSIUM": "Alkali metal abundant in bananas",
+    "RUBIDIUM": "Soft alkali metal; element 37",
+    "AMERICIUM": "Element used in smoke detectors",
+    "FRANCIUM": "Highly radioactive alkali metal",
+    "GALLIUM": "Metal that melts in your hand",
+    "POLONIUM": "Highly radioactive element discovered by Marie Curie"
+  }
+}

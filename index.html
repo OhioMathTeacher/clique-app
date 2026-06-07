@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clique · game maker</title>
+<meta name="description" content="Clique — build, share, and play Connections-style word puzzles for the classroom.">
+<meta name="theme-color" content="#AFA9EC">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<script>document.write('<link rel="stylesheet" href="style.css?v='+Date.now()+'">')</script>
+</head>
+<body>
+<header>
+  <a href="#/" class="brand" aria-label="Clique home">
+    <span class="brand-icon" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 32 32">
+        <rect x="0"  y="0"  width="14" height="14" rx="3" fill="#AFA9EC"/>
+        <rect x="18" y="0"  width="14" height="14" rx="3" fill="#F0997B"/>
+        <rect x="0"  y="18" width="14" height="14" rx="3" fill="#5DCAA5"/>
+        <rect x="18" y="18" width="14" height="14" rx="3" fill="#FAC775"/>
+      </svg>
+    </span>
+    <span class="brand-name">clique</span>
+    <span class="brand-tag">game maker</span>
+  </a>
+  <nav>
+    <a href="#/">Play</a>
+    <a href="#/create">Make</a>
+    <a href="#/build">Build</a>
+    <a href="#/tips">Tips</a>
+    <a href="#/about">About</a>
+    <a href="#" id="open-keys" class="ai-btn"><span class="ai-dot"></span>🤖 AI Setup</a>
+  </nav>
+</header>
+
+<main id="app"></main>
+
+<div class="ai-modal-overlay" id="ai-modal-overlay">
+  <div class="ai-modal" role="dialog" aria-labelledby="ai-modal-title" aria-modal="true">
+    <h2 id="ai-modal-title">AI Setup</h2>
+    <div id="ai-provider-cards" class="ai-provider-cards"></div>
+
+    <div id="ai-key-section" class="ai-key-section" hidden>
+      <input type="password" id="ai-key-input" placeholder="Paste your API key" autocomplete="off">
+      <div class="ai-key-hint" id="ai-key-hint"></div>
+    </div>
+
+    <div id="ai-add-endpoint" class="ai-key-section" hidden>
+      <input type="url" id="ai-endpoint-input" placeholder="http://… or https://…  (URL only, NOT an API key)" autocomplete="off">
+      <div class="ai-key-hint">
+        Connect an OpenAI-compatible server you're running locally. Discovered models appear as tiles above. Press <kbd>Enter</kbd> to add, <kbd>Esc</kbd> to cancel.
+      </div>
+    </div>
+
+    <div class="ai-modal-actions">
+      <button type="button" class="am-save" id="ai-modal-done">Done</button>
+    </div>
+  </div>
+</div>
+
+<div class="ai-modal-overlay" id="gen-modal-overlay">
+  <div class="ai-modal" role="dialog" aria-labelledby="gen-modal-title" aria-modal="true">
+    <h2 id="gen-modal-title">✨ Generate a puzzle</h2>
+    <p class="ai-modal-sub">Uses the language, subject, and grade level you've selected on the Build form. Add a topic hint for better results.</p>
+    <div class="ai-key-section" style="margin-top: 0.4rem;">
+      <div class="ai-key-hint" id="gen-using">Using: <strong>—</strong> · <a href="#" id="gen-change">change in AI Setup</a></div>
+    </div>
+    <div class="ai-key-section">
+      <input type="text" id="gen-topic" placeholder="Topic hint (optional): water cycle, WWII, fractions…">
+    </div>
+    <div id="gen-status" class="ai-key-hint" aria-live="polite" style="min-height: 1.1em;"></div>
+    <div class="ai-modal-actions">
+      <button type="button" class="am-cancel" id="gen-cancel">Cancel</button>
+      <button type="button" class="am-save" id="gen-go">Generate</button>
+    </div>
+  </div>
+</div>
+
+<template id="view-home">
+  <section class="home">
+    <h2>Pick a puzzle</h2>
+    <div class="filters">
+      <label>Language <select id="filter-lang"></select></label>
+      <label>Subject <select id="filter-subject"></select></label>
+      <label>Grade <select id="filter-grade"></select></label>
+    </div>
+    <ul id="puzzle-list" class="puzzle-list">
+      <li class="loading">Loading puzzles…</li>
+    </ul>
+    <p class="cta">Want to make your own? <a href="#/create">Make a puzzle →</a></p>
+  </section>
+</template>
+
+<template id="view-play">
+  <section class="play">
+    <div class="play-main">
+    <header class="play-header">
+      <h2 id="play-title"></h2>
+      <p id="play-author" class="muted"></p>
+      <div id="play-langs" class="play-langs" hidden></div>
+    </header>
+
+    <div id="solved" class="solved"></div>
+    <div id="grid" class="grid"></div>
+
+    <div class="controls">
+      <div class="mistakes">Mistakes: <span id="mistakes-dots"></span></div>
+      <label class="hint-toggle" id="hint-toggle-label" hidden>
+        <input type="checkbox" id="toggle-hints">
+        <span>💡 <span id="hint-toggle-text">Show hints</span></span>
+      </label>
+      <label class="hint-toggle" id="relax-toggle-label">
+        <input type="checkbox" id="toggle-relaxed">
+        <span>🧘 <span id="relax-toggle-text">Relaxed mode</span></span>
+      </label>
+      <div class="buttons">
+        <button id="btn-shuffle" type="button">Shuffle</button>
+        <button id="btn-deselect" type="button">Deselect</button>
+        <button id="btn-ask-athena" type="button">🪢 Ask Socrates</button>
+        <button id="btn-submit" type="button" class="primary" disabled>Submit</button>
+      </div>
+    </div>
+
+    <div id="message" class="message" aria-live="polite"></div>
+    </div>
+    <div id="athena-panel" class="athena-panel" hidden>
+      <div class="athena-panel-head">
+        <span class="athena-panel-label">🪢 Socrates</span>
+        <button type="button" id="btn-athena-close" class="athena-close" aria-label="Close">×</button>
+      </div>
+      <div id="athena-panel-body" class="athena-panel-body"></div>
+      <form id="athena-form" class="athena-form" autocomplete="off">
+        <input type="text" id="athena-input" class="athena-input" placeholder="Ask Socrates a question…">
+        <button type="submit" class="athena-send" aria-label="Send">➤</button>
+      </form>
+    </div>
+  </section>
+</template>
+
+<template id="view-build">
+  <section class="build">
+    <h2>Build a puzzle</h2>
+    <p class="muted">Four groups, four words each. Color = difficulty (yellow easiest, purple hardest).</p>
+
+    <form id="build-form">
+      <label>Title <input name="title" required maxlength="80" placeholder="My Awesome Puzzle"></label>
+      <label>Author <input name="author" maxlength="40" placeholder="Your name (optional)"></label>
+
+      <div class="meta-row">
+        <label>Language <select name="language" required></select></label>
+        <label>Subject <select name="subject" required></select></label>
+        <label>Grade level <select name="grade" required></select></label>
+      </div>
+      <label>Topic (picks the icon) <select name="topic" required></select></label>
+
+      <div class="ai-row">
+        <button type="button" id="btn-ai-generate">✨ Generate with AI</button>
+        <span class="muted">Fills in the puzzle below — review and edit before submitting.</span>
+      </div>
+
+      <div class="groups">
+        <div class="group g-yellow">
+          <label>Yellow category <input name="cat0" required maxlength="60"></label>
+          <div class="words"><input name="w0_0" required maxlength="20"><input name="w0_1" required maxlength="20"><input name="w0_2" required maxlength="20"><input name="w0_3" required maxlength="20"></div>
+        </div>
+        <div class="group g-green">
+          <label>Green category <input name="cat1" required maxlength="60"></label>
+          <div class="words"><input name="w1_0" required maxlength="20"><input name="w1_1" required maxlength="20"><input name="w1_2" required maxlength="20"><input name="w1_3" required maxlength="20"></div>
+        </div>
+        <div class="group g-blue">
+          <label>Blue category <input name="cat2" required maxlength="60"></label>
+          <div class="words"><input name="w2_0" required maxlength="20"><input name="w2_1" required maxlength="20"><input name="w2_2" required maxlength="20"><input name="w2_3" required maxlength="20"></div>
+        </div>
+        <div class="group g-purple">
+          <label>Purple category <input name="cat3" required maxlength="60"></label>
+          <div class="words"><input name="w3_0" required maxlength="20"><input name="w3_1" required maxlength="20"><input name="w3_2" required maxlength="20"><input name="w3_3" required maxlength="20"></div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="button" id="btn-preview">Preview / Test</button>
+        <button type="button" id="btn-share" class="primary">Get share link</button>
+        <button type="button" id="btn-download">Download as file</button>
+      </div>
+    </form>
+
+    <div id="build-output" class="build-output"></div>
+  </section>
+</template>
+
+<template id="view-create">
+  <section class="create">
+    <div class="create-head">
+      <h2>Make a puzzle</h2>
+      <span id="create-step-label" class="create-step-label"></span>
+    </div>
+    <div id="create-stage" class="create-stage"></div>
+    <p class="create-switch muted">Know your way around? <a href="#/build">Switch to free build →</a></p>
+  </section>
+</template>
+
+<template id="view-tips">
+  <section class="tips">
+    <h2>Puzzle building tips</h2>
+    <p class="muted">A great Connections puzzle isn't 16 random words — it's four categories that <em>almost</em> overlap, with one trick per puzzle that makes you say "ohhh." Here's how to land that.</p>
+
+    <div class="tips-card">
+      <h3>1. Pick four distinct categories</h3>
+      <p>Easiest (yellow) → moderate (green) → tricky (blue) → hardest (purple). The hardest one usually involves wordplay, double meanings, or a hidden connection (e.g., "things that precede <em>cell</em>" — PRISON, BLOOD, SOLAR, FUEL).</p>
+    </div>
+
+    <div class="tips-card">
+      <h3>2. Pick four words per category</h3>
+      <p>Each word should clearly belong to its category. Players should think "yes, that's a planet" — not "well, technically…" Specific is better than vague.</p>
+    </div>
+
+    <div class="tips-card">
+      <h3>3. Beware accidental ambiguity</h3>
+      <p>Make sure no word fits two of <em>your own</em> categories. <em>Lime</em> is both a fruit and a color — only include it if you mean to mislead. Skim your 16 words and ask: could this fit somewhere else?</p>
+    </div>
+
+    <div class="tips-card">
+      <h3>4. Add one intentional trap</h3>
+      <p>The most satisfying puzzles include one cleverly placed "decoy" — a word that <em>looks</em> like it belongs in an obvious group but actually belongs in the hardest one. One trap per puzzle, max — more feels mean.</p>
+    </div>
+
+    <div class="tips-card">
+      <h3>5. Use AI as a starting point</h3>
+      <p>Click <strong>✨ Generate with AI</strong> on the Build page to get a draft, then edit aggressively. Models tend to make safe, predictable categories — your job is to swap a couple words to add real cleverness.</p>
+    </div>
+
+    <div class="tips-card">
+      <h3>6. Test it on someone</h3>
+      <p>Use <strong>Preview / Test</strong> to play your own puzzle. If you fly through it, it's too easy. If you can't solve it, it's too obscure. The sweet spot: a couple "one away" near-misses before you crack it.</p>
+    </div>
+  </section>
+</template>
+
+<template id="view-about">
+  <section class="about">
+    <h2>About Clique</h2>
+    <p><strong>Clique</strong> is a classroom-friendly Connections-style puzzle game maker. Players hunt for four groups of four words that share a hidden theme — easiest to hardest. You get four mistakes before the game ends.</p>
+    <p>Anyone can build a puzzle. Click <em>Get share link</em> to send a puzzle to a friend or teacher (no account needed — the puzzle is encoded in the URL), or <em>Download as file</em> to save it locally. Generated puzzles can come from your own AI key (Groq, OpenAI, Gemini, or Claude) — keys stay in the browser and are never uploaded.</p>
+    <p>Source: <a id="repo-link" href="#">GitHub</a></p>
+  </section>
+</template>
+
+<script>document.write('<scr'+'ipt src="app.js?v='+Date.now()+'"></scr'+'ipt>')</script>
+</body>
+</html>

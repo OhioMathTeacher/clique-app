@@ -1,0 +1,261 @@
+{
+  "title": "Philosophy 101",
+  "author": "",
+  "subject": "Philosophy",
+  "grade": "",
+  "topic": "philosophy",
+  "languages": {
+    "en": {
+      "title": "Philosophy 101",
+      "groups": [
+        {
+          "category": "Ancient Greek philosophers",
+          "difficulty": "yellow",
+          "words": [
+            "SOCRATES",
+            "PLATO",
+            "ARISTOTLE",
+            "DIOGENES"
+          ]
+        },
+        {
+          "category": "Inside Plato's cave",
+          "difficulty": "green",
+          "words": [
+            "SHADOWS",
+            "FIRE",
+            "CHAINS",
+            "SUNLIGHT"
+          ]
+        },
+        {
+          "category": "Philosophy's big questions",
+          "difficulty": "blue",
+          "words": [
+            "TRUTH",
+            "JUSTICE",
+            "BEAUTY",
+            "GOOD"
+          ]
+        },
+        {
+          "category": "Ways of thinking",
+          "difficulty": "purple",
+          "words": [
+            "REASON",
+            "DOUBT",
+            "WONDER",
+            "QUESTION"
+          ]
+        }
+      ],
+      "hints": {
+        "SOCRATES": "Who said his one wisdom was knowing that he knew nothing?",
+        "PLATO": "Who wrote his teacher's ideas down and imagined a cave?",
+        "ARISTOTLE": "Who studied under one master, then tutored a boy who'd conquer the world?",
+        "DIOGENES": "Who would make a barrel his home and hunt by lamplight for an honest man?",
+        "SHADOWS": "If flickers on a wall were all you'd ever seen, what would you call real?",
+        "FIRE": "Behind the prisoners, what casts their whole world onto the wall?",
+        "CHAINS": "What would have to hold you so you could face only one wall?",
+        "SUNLIGHT": "Step out of the cave — what blinds you first, then sets you free?",
+        "TRUTH": "Strip away every opinion; what are you still chasing?",
+        "JUSTICE": "What do you owe each person to give them exactly their due?",
+        "BEAUTY": "Is it in the rose or in your eye — what are you judging?",
+        "GOOD": "Outside the cave, what does that highest sun stand for?",
+        "REASON": "How do you reach an answer just by thinking it all the way through?",
+        "DOUBT": "What did Descartes do to everything before he'd believe it?",
+        "WONDER": "What feeling does Aristotle say every philosophy begins in?",
+        "QUESTION": "Instead of lecturing, what did Socrates do again and again?"
+      },
+      "socrates": {
+        "overview": "Sixteen words from intro philosophy. Hidden among them: four ancient Greek thinkers; four things found inside Plato's cave; four of philosophy's big abstract questions; and four words for the act of thinking itself. The trap: several words flirt with more than one group (GOOD is a big question yet arguably a way of thinking; QUESTION is both an act of thought and Socrates' whole method).",
+        "words": {
+          "SOCRATES": "Athenian philosopher (c.470–399 BCE), Plato's teacher; famous for the question-everything 'Socratic method'; wrote nothing himself and was executed for 'corrupting the youth.'",
+          "PLATO": "Socrates' student; wrote the dialogues and founded the Academy; gave us the Allegory of the Cave and the Theory of Forms.",
+          "ARISTOTLE": "Plato's student and Alexander the Great's tutor; logic, ethics, biology, poetics — the encyclopedic mind of antiquity.",
+          "DIOGENES": "The Cynic who lived in a barrel, mocked social convention, and carried a lamp in daylight 'looking for an honest man.'",
+          "SHADOWS": "In Plato's cave, the flickering images on the wall the prisoners mistake for reality — appearance versus truth.",
+          "FIRE": "The artificial light behind the prisoners that casts the shadows — a lesser, man-made source, not the true light.",
+          "CHAINS": "What binds the prisoners so they can only face the wall — bondage, and unexamined belief that feels like all there is.",
+          "SUNLIGHT": "Outside the cave, the true light — Plato's symbol of the Good and of the knowledge the freed prisoner finally sees.",
+          "TRUTH": "One of philosophy's perennial pursuits — what is real, what corresponds to the way things actually are.",
+          "JUSTICE": "A central question from Plato's Republic on — what is fair, what each person is owed, how a good city is ordered.",
+          "BEAUTY": "A classic philosophical puzzle — is it in the object or the eye of the beholder? Plato tied it to the Good and the eternal Forms.",
+          "GOOD": "For Plato the highest Form, the 'sun' of the intelligible world; the ultimate aim of ethics and the cave's destination.",
+          "REASON": "The faculty of logical thought — philosophy's main tool for getting at truth; for the Greeks, what sets humans apart.",
+          "DOUBT": "Methodical questioning — Descartes doubted everything to find what couldn't be doubted ('I think, therefore I am').",
+          "WONDER": "Aristotle and Plato both say philosophy begins in wonder — the astonishment that first makes us ask why.",
+          "QUESTION": "The basic act of philosophy; Socrates' entire method was relentless questioning rather than lecturing."
+        }
+      }
+    },
+    "es": {
+      "title": "Filosofía 101",
+      "groups": [
+        {
+          "category": "Filósofos griegos antiguos",
+          "difficulty": "yellow",
+          "words": [
+            "SÓCRATES",
+            "PLATÓN",
+            "ARISTÓTELES",
+            "DIÓGENES"
+          ]
+        },
+        {
+          "category": "Dentro de la caverna de Platón",
+          "difficulty": "green",
+          "words": [
+            "SOMBRAS",
+            "FUEGO",
+            "CADENAS",
+            "SOL"
+          ]
+        },
+        {
+          "category": "Las grandes preguntas de la filosofía",
+          "difficulty": "blue",
+          "words": [
+            "VERDAD",
+            "JUSTICIA",
+            "BELLEZA",
+            "BIEN"
+          ]
+        },
+        {
+          "category": "Formas de pensar",
+          "difficulty": "purple",
+          "words": [
+            "RAZÓN",
+            "DUDA",
+            "ASOMBRO",
+            "PREGUNTA"
+          ]
+        }
+      ],
+      "hints": {
+        "SÓCRATES": "¿Quién decía que su única sabiduría era saber que no sabía nada?",
+        "PLATÓN": "¿Quién puso por escrito las ideas de su maestro e imaginó una caverna?",
+        "ARISTÓTELES": "¿Quién estudió con un maestro y luego fue tutor de un niño que conquistaría el mundo?",
+        "DIÓGENES": "¿Quién haría de un tonel su hogar y buscaría con una lámpara a un hombre honesto?",
+        "SOMBRAS": "Si solo hubieras visto reflejos temblando en una pared, ¿a qué llamarías real?",
+        "FUEGO": "Detrás de los prisioneros, ¿qué proyecta todo su mundo sobre la pared?",
+        "CADENAS": "¿Qué tendría que sujetarte para que solo pudieras mirar una pared?",
+        "SOL": "Sal de la caverna: ¿qué te ciega primero y luego te libera?",
+        "VERDAD": "Quita toda opinión; ¿qué sigues buscando?",
+        "JUSTICIA": "¿Qué le debes a cada persona para darle exactamente lo suyo?",
+        "BELLEZA": "¿Está en la rosa o en tu ojo — qué estás juzgando?",
+        "BIEN": "Fuera de la caverna, ¿qué simboliza ese sol supremo?",
+        "RAZÓN": "¿Cómo llegas a una respuesta solo pensándola hasta el final?",
+        "DUDA": "¿Qué le hacía Descartes a todo antes de creerlo?",
+        "ASOMBRO": "¿En qué sentimiento dice Aristóteles que empieza toda filosofía?",
+        "PREGUNTA": "En vez de dar lecciones, ¿qué hacía Sócrates una y otra vez?"
+      },
+      "socrates": {
+        "overview": "Dieciséis palabras de filosofía básica. Escondidos entre ellas: cuatro pensadores griegos antiguos; cuatro cosas dentro de la caverna de Platón; cuatro de las grandes preguntas abstractas de la filosofía; y cuatro palabras para el acto mismo de pensar. La trampa: varias coquetean con más de un grupo (BIEN es una gran pregunta y, a la vez, podría ser una forma de pensar; PREGUNTA es tanto un acto del pensamiento como todo el método de Sócrates).",
+        "words": {
+          "SÓCRATES": "Filósofo ateniense (c.470–399 a.C.), maestro de Platón; célebre por el 'método socrático' de cuestionarlo todo; no escribió nada y fue ejecutado por 'corromper a la juventud.'",
+          "PLATÓN": "Discípulo de Sócrates; escribió los diálogos y fundó la Academia; nos dejó la Alegoría de la caverna y la Teoría de las Formas.",
+          "ARISTÓTELES": "Discípulo de Platón y tutor de Alejandro Magno; lógica, ética, biología, poética — la mente enciclopédica de la antigüedad.",
+          "DIÓGENES": "El cínico que vivía en un tonel, se burlaba de las convenciones y llevaba una lámpara de día 'buscando a un hombre honesto.'",
+          "SOMBRAS": "En la caverna de Platón, las imágenes temblorosas en la pared que los prisioneros confunden con la realidad — apariencia frente a verdad.",
+          "FUEGO": "La luz artificial detrás de los prisioneros que proyecta las sombras — una fuente menor, hecha por el hombre, no la luz verdadera.",
+          "CADENAS": "Lo que ata a los prisioneros para que solo miren la pared — atadura, y la creencia no examinada que parece ser todo lo que hay.",
+          "SOL": "Fuera de la caverna, la luz verdadera — símbolo platónico del Bien y del conocimiento que el prisionero liberado por fin ve.",
+          "VERDAD": "Una de las búsquedas perennes de la filosofía — qué es lo real, qué se corresponde con cómo son de verdad las cosas.",
+          "JUSTICIA": "Pregunta central desde la República de Platón — qué es lo justo, qué se le debe a cada uno, cómo se ordena una buena ciudad.",
+          "BELLEZA": "Un clásico enigma filosófico — ¿está en el objeto o en el ojo del que mira? Platón la unió al Bien y a las Formas eternas.",
+          "BIEN": "Para Platón la Forma más alta, el 'sol' del mundo inteligible; el fin último de la ética y el destino fuera de la caverna.",
+          "RAZÓN": "La facultad del pensamiento lógico — la herramienta principal de la filosofía para llegar a la verdad.",
+          "DUDA": "El cuestionamiento metódico — Descartes dudó de todo para hallar lo indudable ('pienso, luego existo').",
+          "ASOMBRO": "Aristóteles y Platón dicen que la filosofía comienza en el asombro — la admiración que nos hace preguntar por qué.",
+          "PREGUNTA": "El acto básico de la filosofía; todo el método de Sócrates era preguntar sin descanso, no dar lecciones."
+        }
+      }
+    },
+    "zh": {
+      "title": "哲学入门",
+      "groups": [
+        {
+          "category": "古希腊哲学家",
+          "difficulty": "yellow",
+          "words": [
+            "苏格拉底",
+            "柏拉图",
+            "亚里士多德",
+            "第欧根尼"
+          ]
+        },
+        {
+          "category": "柏拉图洞穴之中",
+          "difficulty": "green",
+          "words": [
+            "影子",
+            "火",
+            "锁链",
+            "阳光"
+          ]
+        },
+        {
+          "category": "哲学的大问题",
+          "difficulty": "blue",
+          "words": [
+            "真理",
+            "正义",
+            "美",
+            "善"
+          ]
+        },
+        {
+          "category": "思维方式",
+          "difficulty": "purple",
+          "words": [
+            "理性",
+            "怀疑",
+            "好奇",
+            "提问"
+          ]
+        }
+      ],
+      "hints": {
+        "苏格拉底": "谁说自己唯一的智慧，就是知道自己一无所知？",
+        "柏拉图": "谁把老师的思想记录下来，还构想出一个洞穴？",
+        "亚里士多德": "谁师从一位大师，后来又教导了一个将征服世界的少年？",
+        "第欧根尼": "谁会以木桶为家，提着灯笼寻找一个诚实的人？",
+        "影子": "如果你一生只见过墙上晃动的影像，你会把什么当作真实？",
+        "火": "在囚徒身后，是什么把他们的整个世界投到墙上？",
+        "锁链": "要怎样束缚你，才能让你只能面对一面墙？",
+        "阳光": "走出洞穴——什么先使你目眩，又让你获得自由？",
+        "真理": "剥去一切意见之后，你仍在追寻什么？",
+        "正义": "要给每个人应得的，你欠他们什么？",
+        "美": "它在玫瑰里，还是在你眼中——你在评判什么？",
+        "善": "在洞穴之外，那至高的太阳象征着什么？",
+        "理性": "只靠一路想到底，你如何得到答案？",
+        "怀疑": "在相信任何事之前，笛卡尔会先对它做什么？",
+        "好奇": "亚里士多德说，哲学始于哪一种感受？",
+        "提问": "苏格拉底不去讲授，而是一遍遍地做什么？"
+      },
+      "socrates": {
+        "overview": "十六个哲学入门词语。其中藏着：四位古希腊思想家；柏拉图洞穴里的四样东西；哲学的四个宏大抽象问题；以及四个表示“思考”这一行为本身的词。陷阱在于：有些词同时能归入不止一组（“善”既是大问题，也可说是一种思维方式；“提问”既是思考的行为，也是苏格拉底的全部方法）。",
+        "words": {
+          "苏格拉底": "雅典哲学家（约公元前470–399年），柏拉图的老师；以凡事追问的“苏格拉底方法”闻名；自己未留下著作，因“腐蚀青年”被处死。",
+          "柏拉图": "苏格拉底的学生；写下对话录，创立学园；为我们留下了“洞穴之喻”和“理念论”。",
+          "亚里士多德": "柏拉图的学生、亚历山大大帝的老师；逻辑、伦理、生物、诗学——古代百科全书式的头脑。",
+          "第欧根尼": "住在木桶里的犬儒派，嘲讽世俗成规，白天提着灯笼“寻找一个诚实的人”。",
+          "影子": "在柏拉图的洞穴里，墙上摇曳的影像，囚徒们把它当作真实——表象与真理之别。",
+          "火": "囚徒身后投下影子的人造之光——一种次等的、人为的光源，而非真正的光。",
+          "锁链": "把囚徒束缚住、只能面壁的东西——束缚，以及那看似就是一切的、未经省察的信念。",
+          "阳光": "洞穴之外的真光——柏拉图用以象征“善”，以及获释囚徒终于看见的知识。",
+          "真理": "哲学永恒的追求之一——什么是真实的，什么与事物的本来面目相符。",
+          "正义": "自柏拉图《理想国》以来的核心问题——什么是公正，每个人应得什么，好的城邦如何安排。",
+          "美": "一个经典的哲学难题——美在对象之中，还是在观看者眼中？柏拉图把它与“善”和永恒的理念相连。",
+          "善": "在柏拉图那里是最高的理念，是可知世界的“太阳”；伦理学的终极目标，也是走出洞穴的归宿。",
+          "理性": "逻辑思考的能力——哲学通向真理的主要工具；对希腊人而言，这是人之所以为人的标志。",
+          "怀疑": "有方法的追问——笛卡尔怀疑一切，以找出无可怀疑者（“我思故我在”）。",
+          "好奇": "亚里士多德与柏拉图都说，哲学始于好奇（惊奇）——那让我们追问“为什么”的惊异。",
+          "提问": "哲学最基本的行为；苏格拉底的全部方法就是不停地追问，而非讲授。"
+        }
+      }
+    }
+  }
+}

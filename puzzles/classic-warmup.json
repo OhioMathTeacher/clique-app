@@ -1,0 +1,68 @@
+{
+  "title": "Classic Warm-up",
+  "author": "Connections Builder",
+  "language": "en",
+  "subject": "Mixed",
+  "grade": "7-8",
+  "topic": "humor",
+  "groups": [
+    {
+      "category": "Planets",
+      "difficulty": "yellow",
+      "words": [
+        "MERCURY",
+        "VENUS",
+        "EARTH",
+        "MARS"
+      ]
+    },
+    {
+      "category": "Citrus fruits",
+      "difficulty": "green",
+      "words": [
+        "LEMON",
+        "LIME",
+        "ORANGE",
+        "GRAPEFRUIT"
+      ]
+    },
+    {
+      "category": "Chess pieces",
+      "difficulty": "blue",
+      "words": [
+        "KNIGHT",
+        "BISHOP",
+        "ROOK",
+        "PAWN"
+      ]
+    },
+    {
+      "category": "___ ball",
+      "difficulty": "purple",
+      "words": [
+        "BASE",
+        "FOOT",
+        "EYE",
+        "SNOW"
+      ]
+    }
+  ],
+  "hints": {
+    "MERCURY": "Closest planet to the sun",
+    "VENUS": "Hottest planet; named for the Roman goddess of love",
+    "EARTH": "The third planet from the sun",
+    "MARS": "The red planet, fourth from the sun",
+    "LEMON": "Sour yellow citrus fruit",
+    "LIME": "Small green citrus fruit",
+    "ORANGE": "Round citrus fruit and the color it shares its name with",
+    "GRAPEFRUIT": "Large bitter citrus, often pink inside",
+    "KNIGHT": "Chess piece that moves in an L-shape",
+    "BISHOP": "Chess piece that moves diagonally",
+    "ROOK": "Chess piece shaped like a castle tower",
+    "PAWN": "Smallest chess piece, only moves forward",
+    "BASE": "A foundation or starting point",
+    "FOOT": "Body part at the end of your leg, or a unit of length",
+    "EYE": "Organ of sight",
+    "SNOW": "White precipitation that falls in winter"
+  }
+}

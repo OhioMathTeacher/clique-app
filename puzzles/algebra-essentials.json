@@ -1,0 +1,68 @@
+{
+  "title": "Algebra Essentials",
+  "author": "Connections Builder",
+  "language": "en",
+  "subject": "Math",
+  "grade": "9-10",
+  "topic": "algebra",
+  "groups": [
+    {
+      "category": "Operations",
+      "difficulty": "yellow",
+      "words": [
+        "ADD",
+        "SUBTRACT",
+        "MULTIPLY",
+        "DIVIDE"
+      ]
+    },
+    {
+      "category": "Parts of an equation",
+      "difficulty": "green",
+      "words": [
+        "VARIABLE",
+        "COEFFICIENT",
+        "CONSTANT",
+        "EXPONENT"
+      ]
+    },
+    {
+      "category": "Types of numbers",
+      "difficulty": "blue",
+      "words": [
+        "RATIONAL",
+        "INTEGER",
+        "PRIME",
+        "REAL"
+      ]
+    },
+    {
+      "category": "Greek letters used in math",
+      "difficulty": "purple",
+      "words": [
+        "PI",
+        "SIGMA",
+        "DELTA",
+        "THETA"
+      ]
+    }
+  ],
+  "hints": {
+    "ADD": "Combine two numbers to get a sum",
+    "SUBTRACT": "Take one number away from another",
+    "MULTIPLY": "Repeated addition; finds a product",
+    "DIVIDE": "Split into equal parts; finds a quotient",
+    "VARIABLE": "Letter that stands in for an unknown value",
+    "COEFFICIENT": "The number multiplied by a variable",
+    "CONSTANT": "A fixed number that doesn't change",
+    "EXPONENT": "Tells you how many times to multiply a base by itself",
+    "RATIONAL": "Any number that can be written as a fraction",
+    "INTEGER": "A whole number, positive or negative",
+    "PRIME": "Only divisible by 1 and itself",
+    "REAL": "Any number on the number line, including irrationals",
+    "PI": "Ratio of a circle's circumference to its diameter",
+    "SIGMA": "Greek letter used to mean 'sum of'",
+    "DELTA": "Greek letter for 'change in' a value",
+    "THETA": "Greek letter often used for an angle"
+  }
+}

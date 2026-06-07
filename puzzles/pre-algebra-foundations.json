@@ -1,0 +1,68 @@
+{
+  "title": "Pre-Algebra Foundations",
+  "author": "Connections Builder",
+  "language": "en",
+  "subject": "Math",
+  "grade": "7-8",
+  "topic": "arithmetic",
+  "groups": [
+    {
+      "category": "Place values",
+      "difficulty": "yellow",
+      "words": [
+        "ONES",
+        "TENS",
+        "HUNDREDS",
+        "THOUSANDS"
+      ]
+    },
+    {
+      "category": "Results of operations",
+      "difficulty": "green",
+      "words": [
+        "SUM",
+        "DIFFERENCE",
+        "PRODUCT",
+        "QUOTIENT"
+      ]
+    },
+    {
+      "category": "Polygons",
+      "difficulty": "blue",
+      "words": [
+        "TRIANGLE",
+        "SQUARE",
+        "PENTAGON",
+        "HEXAGON"
+      ]
+    },
+    {
+      "category": "Things you can measure",
+      "difficulty": "purple",
+      "words": [
+        "LENGTH",
+        "WEIGHT",
+        "VOLUME",
+        "TIME"
+      ]
+    }
+  ],
+  "hints": {
+    "ONES": "The rightmost place value in a whole number",
+    "TENS": "The second place value from the right",
+    "HUNDREDS": "The third place value from the right",
+    "THOUSANDS": "The fourth place value from the right",
+    "SUM": "The result of adding numbers",
+    "DIFFERENCE": "The result of subtracting numbers",
+    "PRODUCT": "The result of multiplying numbers",
+    "QUOTIENT": "The result of dividing numbers",
+    "TRIANGLE": "Polygon with three sides",
+    "SQUARE": "Polygon with four equal sides and right angles",
+    "PENTAGON": "Polygon with five sides",
+    "HEXAGON": "Polygon with six sides",
+    "LENGTH": "How long something is, measured in distance",
+    "WEIGHT": "How heavy something is",
+    "VOLUME": "How much space something takes up",
+    "TIME": "Measured in seconds, minutes, and hours"
+  }
+}
