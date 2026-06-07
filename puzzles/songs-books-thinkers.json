@@ -1,0 +1,48 @@
+{
+  "title": "Songs, Books & Thinkers",
+  "author": "Connections Builder",
+  "language": "en",
+  "subject": "Philosophy",
+  "grade": "",
+  "topic": "philosophy",
+  "groups": [
+    {
+      "category": "Thinkers",
+      "difficulty": "yellow",
+      "words": ["PLATO", "GANDHI", "BRYANT", "IBSEN"]
+    },
+    {
+      "category": "Their works",
+      "difficulty": "green",
+      "words": ["REPUBLIC", "HIND SWARAJ", "THANATOPSIS", "DOLL'S HOUSE"]
+    },
+    {
+      "category": "Songs paired with them",
+      "difficulty": "blue",
+      "words": ["I FOUND OUT", "MASTERS OF WAR", "OLD MAN", "ONCE IN A LIFETIME"]
+    },
+    {
+      "category": "Their big themes",
+      "difficulty": "purple",
+      "words": ["THE CAVE", "NONVIOLENCE", "MORTALITY", "AWAKENING"]
+    }
+  ],
+  "hints": {
+    "PLATO": "Ancient Greek; the Allegory of the Cave",
+    "GANDHI": "Led India's nonviolent road to independence",
+    "BRYANT": "American Romantic poet of 'Thanatopsis'",
+    "IBSEN": "Norwegian playwright of 'A Doll's House'",
+    "REPUBLIC": "Plato's dialogue that contains the Cave",
+    "HIND SWARAJ": "Gandhi's case for true civilization",
+    "THANATOPSIS": "Bryant's meditation — 'a view of death'",
+    "DOLL'S HOUSE": "Ibsen play that ends with a slammed door",
+    "I FOUND OUT": "Lennon — seeing through the consoling illusions",
+    "MASTERS OF WAR": "Dylan's furious indictment of the war-makers",
+    "OLD MAN": "Neil Young, across the generations",
+    "ONCE IN A LIFETIME": "Talking Heads — 'how did I get here?'",
+    "THE CAVE": "Shadows mistaken for reality (Plato)",
+    "NONVIOLENCE": "Gandhi's ahimsa",
+    "MORTALITY": "Facing one's own death (Bryant)",
+    "AWAKENING": "Nora waking from the doll's life (Ibsen)"
+  }
+}

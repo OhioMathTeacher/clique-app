@@ -1,0 +1,48 @@
+{
+  "title": "The Good Life",
+  "author": "Connections Builder",
+  "language": "en",
+  "subject": "Philosophy",
+  "grade": "",
+  "topic": "philosophy",
+  "groups": [
+    {
+      "category": "The cardinal virtues",
+      "difficulty": "yellow",
+      "words": ["WISDOM", "COURAGE", "JUSTICE", "TEMPERANCE"]
+    },
+    {
+      "category": "Seven deadly sins",
+      "difficulty": "green",
+      "words": ["PRIDE", "GREED", "ENVY", "GLUTTONY"]
+    },
+    {
+      "category": "What philosophers seek",
+      "difficulty": "blue",
+      "words": ["HAPPINESS", "TRUTH", "MEANING", "FREEDOM"]
+    },
+    {
+      "category": "A thinker's big idea, in a word",
+      "difficulty": "purple",
+      "words": ["CAVE", "DOUBT", "DUTY", "VIRTUE"]
+    }
+  ],
+  "hints": {
+    "WISDOM": "Knowing what truly matters",
+    "COURAGE": "Facing fear for the sake of the good",
+    "JUSTICE": "Giving each their due",
+    "TEMPERANCE": "Moderation; self-control",
+    "PRIDE": "The sin said to be the root of the rest",
+    "GREED": "Craving more than you need",
+    "ENVY": "Resenting another's good fortune",
+    "GLUTTONY": "Overindulgence, especially in food and drink",
+    "HAPPINESS": "Aristotle's 'eudaimonia' — a flourishing life",
+    "TRUTH": "What philosophy chases above all",
+    "MEANING": "What makes a life feel worth living",
+    "FREEDOM": "To choose and author your own life",
+    "CAVE": "Plato — shadows mistaken for reality",
+    "DOUBT": "Descartes — question everything you can",
+    "DUTY": "Kant — act only on a rule you'd make universal",
+    "VIRTUE": "Aristotle — character built by good habits"
+  }
+}

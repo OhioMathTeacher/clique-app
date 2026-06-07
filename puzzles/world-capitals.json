@@ -1,0 +1,68 @@
+{
+  "title": "World Capitals",
+  "author": "Connections Builder",
+  "language": "en",
+  "subject": "Social Studies",
+  "grade": "7-8",
+  "topic": "geography",
+  "groups": [
+    {
+      "category": "European capitals",
+      "difficulty": "yellow",
+      "words": [
+        "PARIS",
+        "ROME",
+        "MADRID",
+        "BERLIN"
+      ]
+    },
+    {
+      "category": "Asian capitals",
+      "difficulty": "green",
+      "words": [
+        "TOKYO",
+        "BEIJING",
+        "SEOUL",
+        "BANGKOK"
+      ]
+    },
+    {
+      "category": "African capitals",
+      "difficulty": "blue",
+      "words": [
+        "CAIRO",
+        "NAIROBI",
+        "ABUJA",
+        "ACCRA"
+      ]
+    },
+    {
+      "category": "South American capitals",
+      "difficulty": "purple",
+      "words": [
+        "LIMA",
+        "QUITO",
+        "BOGOTA",
+        "SANTIAGO"
+      ]
+    }
+  ],
+  "hints": {
+    "PARIS": "City of Light, home of the Eiffel Tower",
+    "ROME": "Eternal City, capital of Italy",
+    "MADRID": "Capital of Spain",
+    "BERLIN": "Capital of Germany; site of the famous wall",
+    "TOKYO": "Capital of Japan",
+    "BEIJING": "Capital of China",
+    "SEOUL": "Capital of South Korea",
+    "BANGKOK": "Capital of Thailand",
+    "CAIRO": "Capital of Egypt; near the Pyramids of Giza",
+    "NAIROBI": "Capital of Kenya",
+    "ABUJA": "Capital of Nigeria",
+    "ACCRA": "Capital of Ghana",
+    "LIMA": "Capital of Peru",
+    "QUITO": "Capital of Ecuador, high in the Andes",
+    "BOGOTA": "Capital of Colombia",
+    "SANTIAGO": "Capital of Chile"
+  }
+}
