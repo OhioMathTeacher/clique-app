@@ -54,13 +54,23 @@ The `topic` field picks the icon. See `assets/icons/topics/` for the full list �
 - Static site. No backend, no build step. Vanilla HTML, CSS, and JavaScript.
 - Hosted on GitHub Pages from `main`. Pushing redeploys in about 30 seconds.
 - AI requests go directly from the browser to your chosen provider over HTTPS.
-- Local development:
 
-  ```bash
-  python3 -m http.server 8000
-  ```
+### Running your own copy (optional)
 
-  Then open http://localhost:8000.
+You don't need this for normal play — the [hosted version](https://ohiomathteacher.github.io/clique/)
+works on any device with a browser. But if you want to develop, host on your
+own server, or play offline:
+
+```bash
+git clone https://github.com/OhioMathTeacher/clique-app.git
+cd clique-app
+python3 -m http.server 8000
+```
+
+Then open **http://localhost:8000** in any browser. Works the same on
+macOS, Linux, and Windows (Windows uses `py -m http.server 8000`). No
+Node, no build, no dependencies — Python 3 is the only thing you need,
+and it ships with macOS and most Linux distros by default.
 
 ## Credits
 
