@@ -1162,25 +1162,30 @@ const AI_STORAGE = {
 
 const AI_CLOUD_PROVIDERS = [
   {
-    id: "anthropic", label: "Anthropic Claude",
+    id: "anthropic", label: "Anthropic Claude", tier: "paid",
     desc: "Your own key. Claude Sonnet — powerful and precise.",
     badge: "Own Key", badgeClass: "ai-badge-paid",
     placeholder: "sk-ant-…",
-    keyHint: 'Get a key at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>. Stored only in your browser.',
+    keyUrl: "https://console.anthropic.com/settings/keys",
+    // The "where" now lives in the Get a key ↗ link beside the field, so these
+    // hints carry only what the link cannot: the caveat, and where the key goes.
+    keyHint: "Stored only in your browser — sent to Anthropic and nowhere else.",
   },
   {
-    id: "gemini", label: "Gemini 2.0 Flash",
+    id: "gemini", label: "Gemini 2.5 Flash", tier: "free",
     desc: "Free tier via Google. Use a personal Gmail account.",
     badge: "Free", badgeClass: "ai-badge-free",
     placeholder: "AIza…",
-    keyHint: 'Visit <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com</a> for a free key — <strong>use a personal Gmail, not a school account</strong>. Stored in your browser only.',
+    keyUrl: "https://aistudio.google.com/apikey",
+    keyHint: '<strong>Use a personal Gmail, not a school account</strong> — school accounts are usually blocked from AI Studio. Stored in your browser only.',
   },
   {
-    id: "groq", label: "Groq (Llama 3.3)",
+    id: "groq", label: "Groq (GPT-OSS 120B)", tier: "free",
     desc: "Free tier. Any email — no Google account needed.",
     badge: "Free", badgeClass: "ai-badge-free",
     placeholder: "gsk_…",
-    keyHint: 'Visit <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a> for a free key — any email works. Stored in your browser only.',
+    keyUrl: "https://console.groq.com/keys",
+    keyHint: "Any email works — no Google account needed. Stored in your browser only.",
   },
 ];
 
@@ -1385,9 +1390,21 @@ function refreshHeaderIndicator() {
 
 let _showAddEndpoint = false;
 
+// Which cost-group is showing: 'local' | 'free' | 'paid'.
+let _aiTab = "local";
+
+// The tab a given provider id lives on, so opening the panel lands on the tab
+// the current choice is already on rather than making someone hunt for it.
+function tabOfProvider(id) {
+  if (parseLocalProvider(id)) return "local";
+  const cloud = AI_CLOUD_PROVIDERS.find(p => p.id === id);
+  return cloud ? cloud.tier : "local";
+}
+
 function openAiModal() {
   _showAddEndpoint = false;
   _suggestedLocalServers = [];
+  _aiTab = tabOfProvider(getStoredProvider());
   $("#ai-key-section").hidden = true;
   $("#ai-add-endpoint").hidden = true;
   $("#ai-modal-overlay").classList.add("open");
@@ -1422,30 +1439,46 @@ function renderProviderCards() {
     wrap.appendChild(b);
   };
 
-  // No AI
-  addCard({
-    title: "No AI",
-    desc: "Play and build without an AI thinking partner.",
-    badge: "Off", badgeClass: "ai-badge-none",
-    selected: current === "none",
-    onClick: () => { setStoredProvider("none"); _showAddEndpoint = false; $("#ai-key-section").hidden = true; $("#ai-add-endpoint").hidden = true; renderProviderCards(); },
+  // Tab row state, and the always-visible "Selected:" line beside it.
+  document.querySelectorAll("#ai-subtabs .ai-subtab").forEach(b => {
+    b.classList.toggle("on", b.dataset.ai === _aiTab);
   });
+  const selEl = $("#ai-selected");
+  if (selEl) {
+    selEl.innerHTML = "Selected: <b></b>";
+    selEl.querySelector("b").textContent = describeProvider(current);
+  }
+  const offBtn = $("#ai-disable");
+  if (offBtn) {
+    offBtn.classList.toggle("on", current === "none");
+    offBtn.textContent = current === "none" ? "✓ AI disabled" : "Disable AI";
+  }
+  // Say which ports were tried. A student whose server is on a port we do not
+  // probe otherwise reads an empty tab as "this app cannot do local models".
+  const foot = $("#ai-local-foot");
+  if (foot) {
+    foot.hidden = _aiTab !== "local";
+    foot.textContent = `Auto-checked ports ${WELL_KNOWN_LOCAL_PORTS.map(p => p.url.replace(/^.*:/, "")).join(", ")} on this device and on the computer that served this page.`;
+  }
 
-  // Cloud providers
-  for (const p of AI_CLOUD_PROVIDERS) {
-    addCard({
-      title: p.label,
-      desc: p.desc,
-      badge: p.badge, badgeClass: p.badgeClass,
-      selected: current === p.id,
-      onClick: () => {
-        setStoredProvider(p.id);
-        _showAddEndpoint = false;
-        $("#ai-add-endpoint").hidden = true;
-        showKeyEntry(p);
-        renderProviderCards();
-      },
-    });
+  // Cloud providers, on their own tier's tab only.
+  if (_aiTab !== "local") {
+    for (const p of AI_CLOUD_PROVIDERS.filter(p => p.tier === _aiTab)) {
+      addCard({
+        title: p.label + (getStoredKey(p.id) ? " ✓" : ""),
+        desc: p.desc,
+        badge: p.badge, badgeClass: p.badgeClass,
+        selected: current === p.id,
+        onClick: () => {
+          setStoredProvider(p.id);
+          _showAddEndpoint = false;
+          $("#ai-add-endpoint").hidden = true;
+          showKeyEntry(p);
+          renderProviderCards();
+        },
+      });
+    }
+    return;
   }
 
   // Local model tiles
@@ -1523,6 +1556,15 @@ function pretty(url) {
   return String(url).replace(/^https?:\/\//, "").replace(/\/+$/, "");
 }
 
+// One line naming the current choice, for the "Selected:" label in the tab row.
+function describeProvider(id) {
+  if (!id || id === "none") return "none";
+  const local = parseLocalProvider(id);
+  if (local) return `${prettyModelLabel(local.modelId)} · ${pretty(local.endpoint)}`;
+  const cloud = AI_CLOUD_PROVIDERS.find(p => p.id === id);
+  return cloud ? cloud.label : id;
+}
+
 function showKeyEntry(provider) {
   const hasStored = !!getStoredKey(provider.id);
   $("#ai-key-input").value = "";
@@ -1530,6 +1572,17 @@ function showKeyEntry(provider) {
     ? `Key saved · type to replace · ${provider.placeholder}`
     : provider.placeholder;
   $("#ai-key-hint").innerHTML = provider.keyHint;
+  const label = $("#ai-key-label");
+  if (label) {
+    label.innerHTML = "";
+    label.appendChild(document.createTextNode(`API key for ${provider.label}`));
+    const a = document.createElement("a");
+    a.href = provider.keyUrl;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.textContent = "Get a key ↗";
+    label.appendChild(a);
+  }
   $("#ai-key-section").hidden = false;
   $("#ai-add-endpoint").hidden = true;
   setTimeout(() => $("#ai-key-input")?.focus(), 0);
@@ -1567,6 +1620,27 @@ function bindAiUI() {
   if (overlay) overlay.addEventListener("click", (e) => { if (e.target === overlay) { commitKeyEntry(); closeAiModal(); } });
 
   $("#ai-modal-done")?.addEventListener("click", () => { commitKeyEntry(); closeAiModal(); });
+
+  // Switching tabs commits whatever key was typed first — otherwise a key the
+  // user pasted and then navigated away from is silently discarded.
+  document.querySelectorAll("#ai-subtabs .ai-subtab").forEach(b => {
+    b.addEventListener("click", () => {
+      commitKeyEntry();
+      _aiTab = b.dataset.ai;
+      _showAddEndpoint = false;
+      $("#ai-key-section").hidden = true;
+      $("#ai-add-endpoint").hidden = true;
+      renderProviderCards();
+    });
+  });
+
+  $("#ai-disable")?.addEventListener("click", () => {
+    setStoredProvider("none");
+    _showAddEndpoint = false;
+    $("#ai-key-section").hidden = true;
+    $("#ai-add-endpoint").hidden = true;
+    renderProviderCards();
+  });
 
   $("#ai-key-input")?.addEventListener("keydown", (e) => {
     if (e.key === "Enter") { commitKeyEntry(); closeAiModal(); }

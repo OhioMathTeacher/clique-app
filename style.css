@@ -852,6 +852,89 @@ dialog::backdrop {
   margin: 0.6rem 0 0.5rem;
 }
 
+/* Three tabs by what the model costs the person — Local / $0 / Pay (Own Key).
+   The grouping is the point: someone deciding whether they can afford to use
+   this should not have to know which company owns which model name. */
+.ai-subtabs {
+  display: flex;
+  gap: 0.15rem;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  margin-top: 0.9rem;
+}
+.ai-subtab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  /* The bare `button` rule applies a pill radius; without this the 2px underline
+     bends into a lozenge around the active tab. */
+  border-radius: 0;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.84rem;
+  color: var(--muted);
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+/* Same reason: `button:hover` would otherwise repaint the tab as a raised chip. */
+.ai-subtab:hover:not(:disabled) {
+  color: var(--fg);
+  background: none;
+  border-color: transparent;
+}
+.ai-subtab.on:hover:not(:disabled) { border-bottom-color: var(--brand-purple); }
+.ai-subtab:active:not(:disabled) { transform: none; }
+.ai-subtab.on {
+  color: var(--brand-purple-deep);
+  border-bottom-color: var(--brand-purple);
+}
+/* Always visible, on every tab: what is actually selected right now. Without it
+   the tabs hide the answer to the only question the panel exists to answer,
+   since the choice may live on a tab you are not looking at. */
+.ai-selected {
+  margin-left: auto;
+  padding-right: 0.2rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.ai-selected b { color: var(--fg); font-weight: 600; }
+.ai-disable {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin-top: 0.9rem;
+  font-family: inherit;
+  font-size: 0.78rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+.ai-disable:hover:not(:disabled) { color: var(--fg); background: none; border-color: transparent; }
+.ai-disable:active:not(:disabled) { transform: none; }
+.ai-disable.on { color: var(--fg); }
+/* "Get a key ↗" rides on the field's own label, so someone who has no key is one
+   click from the page that mints one at the moment they find out they need it. */
+.ai-key-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.ai-key-label a {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 500;
+  color: var(--brand-purple-deep);
+  text-decoration: none;
+}
+.ai-key-label a:hover { text-decoration: underline; }
+
 .ai-provider-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

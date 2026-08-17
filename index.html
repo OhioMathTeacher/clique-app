@@ -38,9 +38,17 @@
 <div class="ai-modal-overlay" id="ai-modal-overlay">
   <div class="ai-modal" role="dialog" aria-labelledby="ai-modal-title" aria-modal="true">
     <h2 id="ai-modal-title">AI Setup</h2>
+    <div class="ai-subtabs" id="ai-subtabs">
+      <button type="button" class="ai-subtab on" data-ai="local">Local</button>
+      <button type="button" class="ai-subtab" data-ai="free">$0</button>
+      <button type="button" class="ai-subtab" data-ai="paid">Pay (Own Key)</button>
+      <span class="ai-selected" id="ai-selected"></span>
+    </div>
     <div id="ai-provider-cards" class="ai-provider-cards"></div>
+    <p class="ai-key-hint" id="ai-local-foot" hidden></p>
 
     <div id="ai-key-section" class="ai-key-section" hidden>
+      <label class="ai-key-label" id="ai-key-label" for="ai-key-input"></label>
       <input type="password" id="ai-key-input" placeholder="Paste your API key" autocomplete="off">
       <div class="ai-key-hint" id="ai-key-hint"></div>
     </div>
@@ -51,6 +59,11 @@
         Connect an OpenAI-compatible server you're running locally. Discovered models appear as tiles above. Press <kbd>Enter</kbd> to add, <kbd>Esc</kbd> to cancel.
       </div>
     </div>
+
+    <!-- Turning the AI off is a quiet footer, not a card. As a card it competed
+         with the models for attention on every tab; as a footer it is still one
+         click and still always reachable. -->
+    <div><button type="button" class="ai-disable" id="ai-disable">Disable AI</button></div>
 
     <div class="ai-modal-actions">
       <button type="button" class="am-save" id="ai-modal-done">Done</button>
