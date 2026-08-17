@@ -1893,7 +1893,12 @@ async function callGemini({ key, model, prompt, systemMessage, jsonMode = true }
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(key)}`;
   const body = {
     contents: [{ role: "user", parts: [{ text: prompt }] }],
-    generationConfig: { temperature: 0.8 },
+    // No maxOutputTokens here, so a puzzle is not at risk of being cut off the
+    // way journaler-284's chat was. Thinking is still disabled: on 2.5 Flash it
+    // is on by default, and for generating a puzzle to a fixed JSON shape it
+    // buys nothing while costing latency in front of a class and quota on a
+    // free tier.
+    generationConfig: { temperature: 0.8, thinkingConfig: { thinkingBudget: 0 } },
   };
   if (jsonMode) body.generationConfig.responseMimeType = "application/json";
   if (systemMessage) body.systemInstruction = { parts: [{ text: systemMessage }] };
