@@ -1352,11 +1352,17 @@ function resolveActiveProvider() {
   return {
     label: cloud.label,
     generate: ({ prompt, systemMessage, jsonMode }) => {
+      // claude-sonnet-4-6 is still served, so it stays. Moving it to Sonnet 5
+      // would mean also disabling thinking -- on by default there, and sharing
+      // the max_tokens budget with the reply. Worth doing deliberately, not as a
+      // side effect of a sweep for models that had actually died.
       if (cloud.id === "anthropic") return callAnthropic({ key, model: "claude-sonnet-4-6", prompt, systemMessage });
-      if (cloud.id === "gemini")    return callGemini({ key, model: "gemini-2.0-flash", prompt, systemMessage, jsonMode });
+      // gemini-2.0-flash was retired.
+      if (cloud.id === "gemini")    return callGemini({ key, model: "gemini-2.5-flash", prompt, systemMessage, jsonMode });
+      // llama-3.3-70b-versatile stopped being served on 16 August 2026.
       if (cloud.id === "groq")      return callOpenAICompatible({
         url: "https://api.groq.com/openai/v1/chat/completions",
-        key, model: "llama-3.3-70b-versatile", prompt, systemMessage, jsonMode,
+        key, model: "openai/gpt-oss-120b", prompt, systemMessage, jsonMode,
       });
       throw new Error(`Unknown cloud provider: ${cloud.id}`);
     },
