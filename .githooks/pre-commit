@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 # Re-measure the About panel so its numbers always describe this commit.
 # Enable once per clone:  git config core.hooksPath .githooks
 command -v node >/dev/null 2>&1 || { echo "measure: node not found, skipping"; exit 0; }
