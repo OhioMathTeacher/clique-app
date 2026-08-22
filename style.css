@@ -1236,3 +1236,34 @@ input.dup-bad {
 .play-langs .lang-btn.active {
   background: var(--accent); color: var(--bg); border-color: var(--accent);
 }
+
+/* --- About panel build info (values written by measure.mjs) --- */
+.buildinfo {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1.1rem;
+  margin: 1.25rem 0 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.buildinfo dt {
+  color: var(--muted);
+  font-weight: 500;
+}
+.buildinfo dd {
+  margin: 0;
+  color: var(--fg-2);
+}
+.buildinfo dd[title] { cursor: help; }
+.buildinfo a { color: inherit; }
+.buildinfo-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+@media (max-width: 30rem) {
+  .buildinfo { grid-template-columns: 1fr; gap: 0.15rem; }
+  .buildinfo dt { margin-top: 0.5rem; }
+}
